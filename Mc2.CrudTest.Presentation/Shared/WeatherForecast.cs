@@ -1,4 +1,4 @@
-namespace Mc2.CrudTest.Presentation.Shared
+namespace Mc2.CrudTest.Shared
 {
     public class WeatherForecast
     {

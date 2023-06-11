@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Api\Core.Api.csproj" />
+    <ProjectReference Include="..\..\Mc2.CrudTest.Presentation.Application\Mc2.CrudTest.Application.csproj" />
+    <ProjectReference Include="..\Client\Mc2.CrudTest.UI.csproj" />
+  </ItemGroup>
+
+
+</Project>

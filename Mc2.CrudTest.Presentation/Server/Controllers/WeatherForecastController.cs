@@ -1,7 +1,7 @@
-using Mc2.CrudTest.Presentation.Shared;
+using Mc2.CrudTest.Shared;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mc2.CrudTest.Presentation.Server.Controllers
+namespace Mc2.CrudTest.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

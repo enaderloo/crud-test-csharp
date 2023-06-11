@@ -1,8 +1,7 @@
-using Mc2.CrudTest.Presentation.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace Mc2.CrudTest.Presentation.Client
+namespace Mc2.CrudTest.UI
 {
     public class Program
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.ResponseCompression;
 
-namespace Mc2.CrudTest.Presentation
+namespace Mc2.CrudTest.Api
 {
     public class Program
     {
