@@ -2,10 +2,10 @@ using System.Text.RegularExpressions;
 
 namespace Core.Domain.ValueObjects;
 
-public class PhoneNumber : ValueObject<PhoneNumber>
+public class MobileNumber : ValueObject<MobileNumber>
 {
     private readonly string? _value;
-    public PhoneNumber(string? number)
+    public MobileNumber(string? number)
     {
         if (string.IsNullOrWhiteSpace(number))
             return;
@@ -22,10 +22,10 @@ public class PhoneNumber : ValueObject<PhoneNumber>
         _value = number;
     }
 
-    public static implicit operator PhoneNumber(string? number) => new(number);
-    public static implicit operator string?(PhoneNumber number) => number._value;
+    public static implicit operator MobileNumber(string? number) => new(number);
+    public static implicit operator string?(MobileNumber number) => number._value;
     public override string? ToString() => _value;
-    protected override bool EqualsCore(PhoneNumber other)
+    protected override bool EqualsCore(MobileNumber other)
     {
         return other is not null &&
                _value == other._value;

@@ -13,7 +13,7 @@ namespace Mc2.CrudTest.UnitTest.Entities.CustomerAggregate
             string firstname = "firstname";
             string lastname = "lastname";
             DateTime dateOfBirth = default;
-            PhoneNumber phoneNumber = "0123456789";
+            MobileNumber phoneNumber = "0123456789";
             Email email = "abc@abc.com";
             string bankAccountNumber = "0000-0000-0000-0000";
 
@@ -43,7 +43,7 @@ namespace Mc2.CrudTest.UnitTest.Entities.CustomerAggregate
             string firstname = "firstname";
             string lastname = "lastname";
             DateTime dateOfBirth = default;
-            PhoneNumber phoneNumber = "09191234567";
+            MobileNumber phoneNumber = "09191234567";
             Email email = "abc@abc.com";
             string bankAccountNumber = "0000-0000-0000-0000";
             var customer = new Customer(firstname, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber);
@@ -57,6 +57,24 @@ namespace Mc2.CrudTest.UnitTest.Entities.CustomerAggregate
 
             // Assert
             Assert.True(false);
+        }
+
+
+        [Fact]
+        public void Validate_PhoneNumber_Should_Return_True()
+        {
+            // Arrange
+            string firstname = "firstname";
+            string lastname = "lastname";
+            DateTime dateOfBirth = default;
+            string phoneNumber = "+989121234567";
+            Email email = "abc@abc.com";
+            string bankAccountNumber = "0000-0000-0000-0000";
+            var customer = new Customer(firstname, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber);
+
+
+            // Assert
+            Assert.Equal(phoneNumber, customer.PhoneNumber);
         }
     }
 }

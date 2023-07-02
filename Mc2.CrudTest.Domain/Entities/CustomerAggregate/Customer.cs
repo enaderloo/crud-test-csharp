@@ -20,12 +20,12 @@ namespace Mc2.CrudTest.Domain.Entities.CustomerAggregate
         {
         }
 
-        public Customer(string firstname, string lastname, DateTime dateOfBirth, PhoneNumber phoneNumber, Email email, string bankAccountNumber) : this()
+        public Customer(string firstname, string lastname, DateTime dateOfBirth, string phoneNumber, Email email, string bankAccountNumber) : this()
         {
             Update(firstname, lastname, dateOfBirth, phoneNumber, email, bankAccountNumber);
         }
 
-        public void Update(string firstname, string lastname, DateTime dateOfBirth, PhoneNumber phoneNumber, Email email, string bankAccountNumber)
+        public void Update(string firstname, string lastname, DateTime dateOfBirth, string phoneNumber, Email email, string bankAccountNumber)
         {
             // using for concurrency issue
             //if (timeStamp != LastUpdateDate.Ticks)
@@ -33,6 +33,9 @@ namespace Mc2.CrudTest.Domain.Entities.CustomerAggregate
 
             if (!BankAccountNumberIsValid(bankAccountNumber))
                 throw new DomainException("BankAccountNumberIsNotValid");
+
+            if (!PhoneNumberIsValid(phoneNumber))
+                throw new DomainException("PhoneNumberIsNotValid");
 
             Firstname = firstname;
             Lastname = lastname;
@@ -63,6 +66,13 @@ namespace Mc2.CrudTest.Domain.Entities.CustomerAggregate
         {
             // For example 0000-0000-0000-0000
             return Regex.IsMatch(input, "((\\d{4})-){3}\\d{4}");
+        }
+
+        private bool PhoneNumberIsValid(string input)
+        {
+            var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();      
+            var phoneNumber = phoneNumberUtil.Parse(input, "IR");
+            return phoneNumberUtil.IsValidNumber(phoneNumber);
         }
     }
 }
